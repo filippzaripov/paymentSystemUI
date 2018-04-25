@@ -1,0 +1,45 @@
+
+<div class="row"  >
+  <div class="col-lg-3">
+    <div class="btn-group">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Filter by Biller
+      </button>
+      <div class="dropdown-menu">
+        <a *ngFor="let biller of billers" class="dropdown-item" href="/payments/filterByBiller={{biller.id}}">{{biller.name}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="btn-group">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Filter by Customer
+      </button>
+      <div class="dropdown-menu">
+        <a *ngFor="let customer of customers" class="dropdown-item" href="/customer/filterByCustomer={{customer.id}}">{{customer.firstName}} {{customer.lastName}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Customer</th>
+    <th scope="col">Biller</th>
+    <th scope="col">Account</th>
+    <th scope="col">Amount</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let payment of payments">
+    <tr>
+      <td>{{payment.date}}</td>
+      <td>{{payment.customer.firstName}} {{payment.customer.lastName}}</td>
+      <td>{{payment.biller.name}}</td>
+      <td>{{payment.account}}</td>
+      <td>{{payment.amount}}</td>
+    </tr>
+  </tbody>
+</table>

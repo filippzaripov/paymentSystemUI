@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let biller of billers">
+
+  <tr>
+    <th scope="row">{{biller.id}}</th>
+    <td>{{biller.name}}</td>
+    <td>{{biller.address}}</td>
+    <td><a href="/biller/{{biller.id}}">Edit</a></td>
+  </tr>
+
+
+  </tbody>
+</table>
