@@ -7,11 +7,12 @@ import { PaymentsComponent } from './payments/payments.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerService } from './customer.service';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { BillerService } from './biller.service';
 import { BillersComponent } from './billers/billers.component';
 import { PaymentService } from './payment.service';
 import { BillerEditComponent } from './biller-edit/biller-edit.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BillerEditComponent } from './biller-edit/biller-edit.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [CustomerService, BillerService, PaymentService],
   bootstrap: [AppComponent]

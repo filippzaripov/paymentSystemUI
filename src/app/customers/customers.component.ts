@@ -22,8 +22,9 @@ export class CustomersComponent implements OnInit {
     this.customerService.getCustomers().subscribe(customers => this.customers = customers);
   }
 
-  editCustomer(id: string): void {
+  editCustomer(id: number): void {
     this.router.navigate(['/customer/' + id]);
+    this.customerService.getCustomer(id);
   }
 
 }

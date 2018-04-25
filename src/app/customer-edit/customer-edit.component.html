@@ -1,8 +1,8 @@
-<form>
-  <div class="form-control">
+
+  <div class="form-control" *ngIf="customer">
     <div class="form-group">
       <label for="id">ID</label>
-      <input class="form-control" id="id" type="text" value="{{ customer.id }}" placeholder="ID" readonly>
+      <input class="form-control" id="id" type="text" value="{{customer.id}}" placeholder="ID" readonly>
     </div>
     <div class="form-group">
       <label for="firstname">First Name</label>
@@ -20,7 +20,7 @@
       <label for="address">Address</label>
       <input type="text" class="form-control" id="address" placeholder="Address" value="{{customer.address}}">
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
     <button class="btn btn-primary" (click)="toCustomers()">Back To Customers</button>
   </div>
-</form>
+

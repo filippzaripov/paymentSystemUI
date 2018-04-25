@@ -1,3 +1,4 @@
+<a routerLink="/customer" type="button" class="btn btn-success">New</a>
 <table class="table table-hover">
   <thead>
   <tr>
@@ -12,12 +13,12 @@
   <tbody *ngFor="let customer of customers">
 
       <tr>
-        <th scope="row" (click)="editCustomer($customer.id)">{{customer.id}}</th>
+        <th scope="row">{{customer.id}}</th>
         <td>{{customer.firstName}}</td>
         <td>{{customer.lastName}}</td>
         <td>{{customer.birthDate}}</td>
         <td>{{customer.address}}</td>
-        <td><a href="/customer/{{customer.id}}">Edit</a></td>
+        <td><a routerLink="/customer/{{customer.id}}">Edit</a></td>
       </tr>
 
 

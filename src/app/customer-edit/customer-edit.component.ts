@@ -31,4 +31,9 @@ export class CustomerEditComponent implements OnInit {
   toCustomers(): void {
     this.router.navigate(['/customers']);
   }
+
+  save(){
+    this.customerService.updateCustomer(this.customer)
+      .subscribe(() => this.toCustomers());
+  }
 }
