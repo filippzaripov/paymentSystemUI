@@ -6,11 +6,14 @@ import {CustomerEditComponent} from './customer-edit/customer-edit.component';
 import {PaymentsComponent} from './payments/payments.component';
 import {BillersComponent} from './billers/billers.component';
 import {BillerEditComponent} from './biller-edit/biller-edit.component';
+import {CustomerCreateComponent} from './customer-create/customer-create.component';
+import {CustomerFormComponent} from './customer-form/customer-form.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/payments', pathMatch: 'full'},
   {path: 'payments', component: PaymentsComponent},
   {path: 'customers', component: CustomersComponent},
+  {path: 'customer', component: CustomerFormComponent},
   {path: 'customer/:id', component: CustomerEditComponent},
   {path: 'billers', component: BillersComponent},
   {path: 'biller/:id', component: BillerEditComponent}

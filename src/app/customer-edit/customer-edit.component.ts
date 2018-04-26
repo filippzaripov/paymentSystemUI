@@ -32,8 +32,8 @@ export class CustomerEditComponent implements OnInit {
     this.router.navigate(['/customers']);
   }
 
-  save(){
-    this.customerService.updateCustomer(this.customer)
+  save(): void {
+    this.customerService.updateHero(this.customer)
       .subscribe(() => this.toCustomers());
   }
 }
