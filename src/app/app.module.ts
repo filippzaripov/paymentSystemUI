@@ -18,6 +18,7 @@ import {CustomerCreateComponent} from './customer-create/customer-create.compone
 import {CustomerFormComponent} from './customer-form/customer-form.component';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
+import { BillerFormComponent } from './biller-form/biller-form.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,19 @@ import {InMemoryDataService} from './in-memory-data.service';
     BillersComponent,
     BillerEditComponent,
     CustomerCreateComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    BillerFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false})
   ],
   providers: [CustomerService, BillerService, PaymentService],
   bootstrap: [AppComponent]

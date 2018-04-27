@@ -1,4 +1,6 @@
-<a routerLink="/customer" class="btn btn-success">New</a>
+<div style="margin-bottom: 10px">
+  <button routerLink="/customer" class="btn btn-success">New Customer</button>
+</div>
 <table class="table table-hover">
   <thead>
   <tr>
@@ -18,7 +20,10 @@
         <td>{{customer.lastName}}</td>
         <td>{{customer.birthDate}}</td>
         <td>{{customer.address}}</td>
-        <td><a routerLink="/customer/{{customer.id}}">Edit</a></td>
+        <td>
+        <button class="btn btn-info" title="edit customer" (click)="editCustomer(customer.id)">Edit</button>
+        <button class="btn btn-danger" title="delete customer" (click)="delete(customer)">Delete</button>
+        </td>
       </tr>
 
 

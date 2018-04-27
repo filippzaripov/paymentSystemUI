@@ -33,7 +33,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   save(): void {
-    this.customerService.updateHero(this.customer)
+    this.customerService.updateCustomer(this.customer)
       .subscribe(() => this.toCustomers());
   }
 }

@@ -11,15 +11,13 @@ const httpOptions = {
 
 @Injectable()
 export class CustomerService {
-  private customersUrl = 'http://localhost:8080/customers';
+  private customersUrl = 'api/customers';
 
-  // private customer = new Customer();
 
   constructor(private http: HttpClient) {
   }
 
   getCustomers(): Observable<Customer[]> {
-    /*return of(CUSTOMERS);*/
     return this.http.get<Customer[]>(this.customersUrl).pipe(
       catchError(this.handleError('getCustomers', []))
     );
@@ -28,13 +26,20 @@ export class CustomerService {
   getCustomer(id: number): Observable<Customer> {
     const url = `${this.customersUrl}/${id}`;
     return this.http.get<Customer>(url);
-    /*return of(CUSTOMERS.find(customer => customer.id === id));*/
   }
 
-  /** PUT: update the customer on the server */
-  updateHero(customer: Customer): Observable<any> {
+  updateCustomer(customer: Customer): Observable<any> {
     return this.http.put(this.customersUrl, customer, httpOptions).pipe(
       catchError(this.handleError<any>('updateCustomer'))
+    );
+  }
+
+  deleteCustomer(customer: Customer | number): Observable<Customer> {
+    const id = typeof customer === 'number' ? customer : customer.id;
+    const url = `${this.customersUrl}/${id}`;
+
+    return this.http.delete<Customer>(url, httpOptions).pipe(
+      catchError(this.handleError<Customer>('deleteCustomer'))
     );
   }
 
@@ -42,14 +47,6 @@ export class CustomerService {
     return this.http.post<Customer>(this.customersUrl, customer, httpOptions).pipe(
       catchError(this.handleError<Customer>('addCustomer')
       ));
-  }
-
-  setter(customer: Customer) {
-    // this.customer = customer;
-  }
-
-  getter() {
-    // return this.customer;
   }
 
   /**

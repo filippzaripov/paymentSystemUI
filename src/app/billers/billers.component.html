@@ -1,3 +1,6 @@
+<div style="margin-bottom: 10px">
+  <button routerLink="/biller" class="btn btn-success">New Biller</button>
+</div>
 <table class="table table-hover">
   <thead>
   <tr>
@@ -13,9 +16,11 @@
     <th scope="row">{{biller.id}}</th>
     <td>{{biller.name}}</td>
     <td>{{biller.address}}</td>
-    <td><a href="/biller/{{biller.id}}">Edit</a></td>
+    <td>
+      <button class="btn btn-info" title="edit biller" (click)="editBiller(biller.id)">Edit</button>
+      <button class="btn btn-danger" title="delete biller" (click)="delete(biller)">Delete</button>
+    </td>
   </tr>
-
 
   </tbody>
 </table>

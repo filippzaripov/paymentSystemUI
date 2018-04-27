@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../customer';
 import {CustomerService} from '../customer.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class CustomersComponent implements OnInit {
   customers: Customer[];
 
-  constructor(private customerService: CustomerService, private router: Router) {
+  constructor(private customerService: CustomerService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -22,22 +22,12 @@ export class CustomersComponent implements OnInit {
     this.customerService.getCustomers().subscribe(customers => this.customers = customers);
   }
 
-  editCustomer(customer): void {
-
-    this.customerService.setter(customer);
-    this.router.navigate(['/customer']);
-    /*this.router.navigate(['/customer/' + id]);
-    this.customerService.getCustomer(id);*/
-
+  editCustomer(id: string): void {
+    this.router.navigate([`/customer/${id}`]);
   }
 
-  createCustomer() {
-    /*const customer = new Customer();
-    this.customerService.setter(customer);
-    this.router.navigate(['/customer']);*/
-  }
 
-  addName(name: string): void {
+  /*addName(name: string): void {
     name = name.trim();
     if (!name) {
       return;
@@ -52,9 +42,22 @@ export class CustomersComponent implements OnInit {
     if (!firstName && !lastName) {
       return;
     }
-    this.customerService.saveCustomer({firstName: firstName, lastName: lastName, birthDate: birthDate, address: address} as Customer)
+    this.customerService.saveCustomer({
+      firstName: firstName,
+      lastName: lastName,
+      birthDate: birthDate,
+      address: address
+    } as Customer)
       .subscribe(customer => {
         this.customers.push(customer);
       });
+  }*/
+
+  delete(customer: Customer): void {
+    this.customers = this.customers.filter(function (cu) {
+      return cu !== customer;
+    });
+    this.customerService.deleteCustomer(customer).subscribe();
   }
+
 }
