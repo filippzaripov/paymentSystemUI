@@ -19,6 +19,7 @@ import {CustomerFormComponent} from './customer-form/customer-form.component';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import { BillerFormComponent } from './biller-form/biller-form.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BillerFormComponent } from './biller-form/biller-form.component';
     BillerEditComponent,
     CustomerCreateComponent,
     CustomerFormComponent,
-    BillerFormComponent
+    BillerFormComponent,
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,

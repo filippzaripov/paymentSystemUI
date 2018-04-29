@@ -1,0 +1,31 @@
+<h2>New Payment</h2>
+<div class="container">
+  <div>
+    <label>Customer</label>
+    <select class="custom-select" [(ngModel)]="selectedCustomer" required>
+      <option selected></option>
+      <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.firstName}} {{customer.lastName}} (id: {{customer.id}})</option>
+    </select>
+  </div>
+  <div>
+    <label>Biller</label>
+    <select class="custom-select" [(ngModel)]="selectedBiller" required>
+      <option selected></option>
+      <option *ngFor="let biller of billers" [ngValue]="biller">{{biller.name}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Account</label>
+    <input class="form-control" [(ngModel)]="account" required>
+  </div>
+  <div>
+    <label>Amount</label>
+    <input type="number" class="form-control" [(ngModel)]="amount" required>
+  </div>
+<div *ngIf="showElement == true">
+  <h3>Please fill all fields!</h3>
+</div>
+  <button class="btn btn-primary" (click)="add(account.value, amount.value)">Pay</button>
+  <input class="btn btn-primary" (click)="toPayments()" value="Back">
+</div>
+

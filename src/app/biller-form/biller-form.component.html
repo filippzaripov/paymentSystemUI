@@ -1,4 +1,4 @@
-
+<h2>New Biller</h2>
 <div class="container">
   <div class="form-group" *ngIf="biller">
     <label>ID</label>
@@ -6,11 +6,11 @@
   </div>
   <div class="form-group">
     <label>Name</label>
-    <input #name class="form-control" placeholder="Name" [(ngModel)]="biller.name">
+    <input #name class="form-control" placeholder="Name" [(ngModel)]="biller.name" required>
   </div>
   <div class="form-group">
     <label>Address</label>
-    <input #address class="form-control" placeholder="Address" [(ngModel)]="biller.address">
+    <input #address class="form-control" placeholder="Address" [(ngModel)]="biller.address" required>
   </div>
   <button class="btn btn-primary" (click)="add(name.value, address.value)" class="btn btn-success">Save</button>
   <input class="btn btn-primary" (click)="toBillers()" value="Back">

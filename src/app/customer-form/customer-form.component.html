@@ -1,4 +1,4 @@
-
+<h2>New customer</h2>
 <div class="container">
 
   <div class="form-group" *ngIf="customer">
@@ -8,19 +8,19 @@
   </div>
   <div class="form-group">
     <label>First Name</label>
-      <input #firstName class="form-control" placeholder="First Name" [(ngModel)]="customer.firstName">
+      <input #firstName class="form-control" placeholder="First Name" required/>
   </div>
   <div class="form-group">
     <label>Last Name</label>
-      <input #lastName class="form-control" placeholder="Last Name" [(ngModel)]="customer.lastName">
+      <input #lastName class="form-control" placeholder="Last Name" required/>
   </div>
   <div class="form-group">
     <label>Birth Date</label>
-      <input #birthDate class="form-control" placeholder="Birth Date" [(ngModel)]="customer.birthDate">
+      <input type="date" #birthDate class="form-control" placeholder="Birth Date" required/>
   </div>
   <div class="form-group">
     <label>Address</label>
-      <input #address class="form-control" placeholder="Address" [(ngModel)] ="customer.address">
+      <input #address class="form-control" placeholder="Address" required/>
   </div>
 
   <button class="btn btn-primary" (click)="add(firstName.value, lastName.value, birthDate.value, address.value)" class="btn btn-success">Save</button>

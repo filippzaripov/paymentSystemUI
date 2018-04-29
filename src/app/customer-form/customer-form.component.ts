@@ -18,13 +18,7 @@ export class CustomerFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCustomer();
   }
-
- /* getCustomer() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.customerService.getCustomer(+id).subscribe(customer => this.customer = customer);
-  }*/
 
   getCustomer(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -36,7 +30,7 @@ export class CustomerFormComponent implements OnInit {
   }
 
   add(firstName: string, lastName: string, birthDate: string, address: string): void {
-    if (!firstName && !lastName) {
+    if (!firstName || !lastName) {
       return;
     }
     this.customerService.saveCustomer({

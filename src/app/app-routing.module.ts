@@ -9,10 +9,12 @@ import {BillerEditComponent} from './biller-edit/biller-edit.component';
 import {CustomerCreateComponent} from './customer-create/customer-create.component';
 import {CustomerFormComponent} from './customer-form/customer-form.component';
 import {BillerFormComponent} from './biller-form/biller-form.component';
+import {PaymentFormComponent} from './payment-form/payment-form.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/payments', pathMatch: 'full'},
   {path: 'payments', component: PaymentsComponent},
+  {path: 'payment', component: PaymentFormComponent},
   {path: 'customers', component: CustomersComponent},
   {path: 'customer', component: CustomerFormComponent},
   {path: 'customer/:id', component: CustomerFormComponent},

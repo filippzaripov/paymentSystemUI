@@ -18,7 +18,7 @@
         <th scope="row">{{customer.id}}</th>
         <td>{{customer.firstName}}</td>
         <td>{{customer.lastName}}</td>
-        <td>{{customer.birthDate}}</td>
+        <td>{{customer.birthDate | date: 'dd/MM/yyyy'}}</td>
         <td>{{customer.address}}</td>
         <td>
         <button class="btn btn-info" title="edit customer" (click)="editCustomer(customer.id)">Edit</button>
