@@ -57,7 +57,7 @@ export class PaymentFormComponent implements OnInit {
      return;
      }
     this.payment = new Payment(this.selectedCustomer, this.selectedBiller, this.account, this.amount);
-    this.paymentService.savePayment(this.payment)
+    this.paymentService.savePayment(this.payment, this.selectedCustomer.id, this.selectedBiller.id)
       .subscribe();
      this.toPayments();
   }

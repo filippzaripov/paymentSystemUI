@@ -1,7 +1,7 @@
 import {Payment} from './payment';
 
 export const PAYMENTS: Payment[] = [
-  {
+ /* {
     id: 1, date: '01.01.01 00:00',
     customer: {id: 1, firstName: 'Filipp', lastName: 'Zaripov', birthDate: '30.04.1995', address: 'Kazan'},
     biller: {id: 1, name: 'Biller 1', address: 'Kazan'},
@@ -26,5 +26,5 @@ export const PAYMENTS: Payment[] = [
     account: '0123456731', amount: 10000123
   }
 
-
+*/
 ]

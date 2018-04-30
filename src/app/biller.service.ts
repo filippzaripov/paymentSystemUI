@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class BillerService {
-  private billersUrl = 'api/billers';
+  private billersUrl = 'http://localhost:8080/billers';
 
   constructor(private http: HttpClient) {
   }

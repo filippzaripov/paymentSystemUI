@@ -13,7 +13,7 @@ import {Payment} from '../payment';
   styleUrls: ['./payments.component.css']
 })
 export class PaymentsComponent implements OnInit {
-  payments: Payment[];
+  payments: Payment [];
   customers: Customer[];
   billers: Biller[];
 

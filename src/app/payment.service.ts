@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Payment} from './payment';
+import {Customer} from './customer';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
@@ -11,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class PaymentService {
-  private paymentsUrl = 'api/payments';
+  private paymentsUrl = 'http://localhost:8080/payments';
 
 
   constructor(private http: HttpClient) {
@@ -43,12 +44,22 @@ export class PaymentService {
     );
   }
 
-  savePayment(payment: Payment): Observable<Payment> {
+  savePayment(payment: Payment, customer_id: number, biller_id: number): Observable<Payment> {
+    const url = `${this.paymentsUrl}/${customer_id}&${biller_id}`;
     return this.http.post<Payment>(this.paymentsUrl, payment, httpOptions).pipe(
       catchError(this.handleError<Payment>('addPayment')
       ));
   }
 
+  getPaymentsFilteredByCustomer(filteredByCustomer: number): Observable<Payment[]>{
+    const url = `${this.paymentsUrl}/${filteredByCustomer}`;
+    return this.http.get<Payment[]>(url);
+  }
+
+  getPaymentsFilteredByBiller(filteredByBiller: number): Observable<Payment[]>{
+    const url = `${this.paymentsUrl}/${filteredByBiller}`;
+    return this.http.get<Payment[]>(url);
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

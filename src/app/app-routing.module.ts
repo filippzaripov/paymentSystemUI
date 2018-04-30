@@ -14,6 +14,8 @@ import {PaymentFormComponent} from './payment-form/payment-form.component';
 const routes: Routes = [
   {path: '', redirectTo: '/payments', pathMatch: 'full'},
   {path: 'payments', component: PaymentsComponent},
+  {path: 'payments/:filteredByCustomer', component: PaymentsComponent},
+  {path: 'payments/:filteredByBiller', component: PaymentsComponent},
   {path: 'payment', component: PaymentFormComponent},
   {path: 'customers', component: CustomersComponent},
   {path: 'customer', component: CustomerFormComponent},

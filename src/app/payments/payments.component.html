@@ -9,7 +9,7 @@
         Filter by Biller
       </button>
       <div class="dropdown-menu">
-        <a *ngFor="let biller of billers" class="dropdown-item" href="/payments/filterByBiller={{biller.id}}">{{biller.name}}</a>
+        <a *ngFor="let biller of billers" class="dropdown-item" href="/payments/filteredByBiller={{biller.id}}">{{biller.name}}</a>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
         Filter by Customer
       </button>
       <div class="dropdown-menu">
-        <a *ngFor="let customer of customers" class="dropdown-item" href="/customer/filterByCustomer={{customer.id}}">{{customer.firstName}} {{customer.lastName}}</a>
+        <a *ngFor="let customer of customers" class="dropdown-item" href="/payments/filteredByCustomer={{customer.id}}">{{customer.firstName}} {{customer.lastName}}</a>
       </div>
     </div>
   </div>

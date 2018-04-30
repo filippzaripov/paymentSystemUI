@@ -18,6 +18,7 @@ export class CustomerFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCustomer();
   }
 
   getCustomer(): void {
@@ -29,16 +30,11 @@ export class CustomerFormComponent implements OnInit {
     this.router.navigate(['/customers']);
   }
 
-  add(firstName: string, lastName: string, birthDate: string, address: string): void {
+  add(firstName: string, lastName: string, birthDate: Date, address: string): void {
     if (!firstName || !lastName) {
       return;
     }
-    this.customerService.saveCustomer({
-      firstName: firstName,
-      lastName: lastName,
-      birthDate: birthDate,
-      address: address
-    } as Customer)
+    this.customerService.saveCustomer(new Customer(firstName, lastName, birthDate, address))
       .subscribe(customer => this.customer = customer);
     this.toCustomers();
   }
