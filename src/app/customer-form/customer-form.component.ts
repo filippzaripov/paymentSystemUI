@@ -26,6 +26,7 @@ export class CustomerFormComponent implements OnInit {
     this.customerService.getCustomer(id)
       .subscribe(customer => this.customer = customer);
   }
+
   toCustomers(): void {
     this.router.navigate(['/customers']);
   }
@@ -36,6 +37,7 @@ export class CustomerFormComponent implements OnInit {
     }
     this.customerService.saveCustomer(new Customer(firstName, lastName, birthDate, address))
       .subscribe(customer => this.customer = customer);
+
     this.toCustomers();
   }
 

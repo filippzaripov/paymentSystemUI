@@ -14,7 +14,6 @@ import {BillersComponent} from './billers/billers.component';
 import {PaymentService} from './payment.service';
 import {BillerEditComponent} from './biller-edit/biller-edit.component';
 import {HttpClientModule} from '@angular/common/http';
-import {CustomerCreateComponent} from './customer-create/customer-create.component';
 import {CustomerFormComponent} from './customer-form/customer-form.component';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
@@ -29,7 +28,6 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
     CustomersComponent,
     BillersComponent,
     BillerEditComponent,
-    CustomerCreateComponent,
     CustomerFormComponent,
     BillerFormComponent,
     PaymentFormComponent

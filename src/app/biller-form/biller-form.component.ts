@@ -37,11 +37,11 @@ export class BillerFormComponent implements OnInit {
     if (!name && !address) {
       return;
     }
-    this.billerService.saveBiller({
-      name: name,
-      address: address
-    } as Biller)
-      .subscribe(biller => this.biller = biller);
+      this.billerService.saveBiller({
+        name: name,
+        address: address
+      } as Biller)
+        .subscribe(biller => this.biller = biller);
     this.toBillers();
   }
 

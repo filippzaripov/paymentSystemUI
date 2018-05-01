@@ -4,7 +4,7 @@
   <div class="form-group" *ngIf="customer">
     <h4>Name: {{customer.firstName}} {{customer.lastName}}</h4>
     <label>ID</label>
-    <input #id class="form-control" disabled value="{{customer.id}}">
+    <input #id class="form-control" disabled [(ngModel)]="customer.id">
   </div>
   <div class="form-group">
     <label>First Name</label>

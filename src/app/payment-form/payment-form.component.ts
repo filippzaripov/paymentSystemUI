@@ -24,6 +24,7 @@ export class PaymentFormComponent implements OnInit {
   amount: number;
 
   constructor(private customerService: CustomerService,
+              private route: ActivatedRoute,
               private billerService: BillerService,
               private paymentService: PaymentService,
               private router: Router) {

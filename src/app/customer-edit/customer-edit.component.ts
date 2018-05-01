@@ -32,8 +32,12 @@ export class CustomerEditComponent implements OnInit {
     this.router.navigate(['/customers']);
   }
 
-  save(): void {
-    this.customerService.updateCustomer(this.customer)
-      .subscribe(() => this.toCustomers());
+  update(firstName: string, lastName: string, birthDate: Date, address: string): void {
+    if (!firstName && !lastName) {
+      return;
+    }
+    this.customerService.updateCustomer({firstName: firstName, lastName: lastName, birthDate: birthDate, address: address, id: this.customer.id} as Customer).subscribe()
+
+    this.toCustomers();
   }
 }

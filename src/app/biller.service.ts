@@ -29,7 +29,8 @@ export class BillerService {
   }
 
   updateBiller(biller: Biller): Observable<any> {
-    return this.http.put(this.billersUrl, biller, httpOptions).pipe(
+    const url = `${this.billersUrl}/${biller.id}`;
+    return this.http.put(url, biller, httpOptions).pipe(
       catchError(this.handleError<any>('updateBiller'))
     );
   }

@@ -23,9 +23,9 @@ export class PaymentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPayments();
     this.getBillers();
     this.getCustomers();
+    this.getPayments();
   }
 
   getPayments(): void {
@@ -39,6 +39,13 @@ export class PaymentsComponent implements OnInit {
 
   getBillers() {
     this.billerService.getBillers().subscribe(billers => this.billers = billers);
+  }
+
+  filterByCustomerId(id: number){
+    this.paymentService.getPaymentsFilteredByCustomer(id).subscribe(payments => this.payments = payments);
+  }
+  filterByBillerId(id: number){
+    this.paymentService.getPaymentsFilteredByBiller(id).subscribe(payments => this.payments = payments);
   }
 
 }

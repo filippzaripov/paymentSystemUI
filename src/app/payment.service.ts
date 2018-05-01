@@ -45,19 +45,19 @@ export class PaymentService {
   }
 
   savePayment(payment: Payment, customer_id: number, biller_id: number): Observable<Payment> {
-    const url = `${this.paymentsUrl}/${customer_id}&${biller_id}`;
-    return this.http.post<Payment>(this.paymentsUrl, payment, httpOptions).pipe(
+    const url = `${this.paymentsUrl}?customer_id=${customer_id}&biller_id=${biller_id}`;
+    return this.http.post<Payment>(url, payment, httpOptions).pipe(
       catchError(this.handleError<Payment>('addPayment')
       ));
   }
 
   getPaymentsFilteredByCustomer(filteredByCustomer: number): Observable<Payment[]>{
-    const url = `${this.paymentsUrl}/${filteredByCustomer}`;
+    const url = `${this.paymentsUrl}/filteredByCustomer/${filteredByCustomer}`;
     return this.http.get<Payment[]>(url);
   }
 
   getPaymentsFilteredByBiller(filteredByBiller: number): Observable<Payment[]>{
-    const url = `${this.paymentsUrl}/${filteredByBiller}`;
+    const url = `${this.paymentsUrl}/filteredByBiller/${filteredByBiller}`;
     return this.http.get<Payment[]>(url);
   }
   /**

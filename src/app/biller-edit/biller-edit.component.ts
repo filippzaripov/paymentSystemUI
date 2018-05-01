@@ -32,4 +32,12 @@ export class BillerEditComponent implements OnInit {
     this.router.navigate(['/billers']);
   }
 
+  update(name: string, address: string): void {
+    if (!name && !address) {
+      return;
+    }
+      this.billerService.updateBiller({name: name, address: address, id: this.biller.id} as Biller).subscribe()
+
+    this.toBillers();
+  }
 }
