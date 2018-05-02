@@ -2,10 +2,10 @@ import {Component, OnInit, Input} from '@angular/core';
 import {CustomerService} from '../customer.service';
 import {BillerService} from '../biller.service';
 import {PaymentService} from '../payment.service';
-import {Biller} from "../biller";
-import {Customer} from "../customer";
-import {Payment} from "../payment";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Biller} from '../biller';
+import {Customer} from '../customer';
+import {Payment} from '../payment';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-payment-form',
@@ -59,7 +59,7 @@ export class PaymentFormComponent implements OnInit {
      }
     this.payment = new Payment(this.selectedCustomer, this.selectedBiller, this.account, this.amount);
     this.paymentService.savePayment(this.payment, this.selectedCustomer.id, this.selectedBiller.id)
-      .subscribe();
+      .subscribe(payment => this.payment = payment);
      this.toPayments();
   }
 

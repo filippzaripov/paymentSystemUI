@@ -1,26 +1,20 @@
 <h2>Customer form</h2>
 <div class="container">
-
-  <div class="form-group" *ngIf="customer">
-    <h4>Name: {{customer.firstName}} {{customer.lastName}}</h4>
-    <label>ID</label>
-    <input #id class="form-control" disabled [(ngModel)]="customer.id">
-  </div>
   <div class="form-group">
     <label>First Name</label>
-      <input type="text" #firstName class="form-control" placeholder="First Name" [(ngModel)]="customer.firstName" required/>
+      <input type="text" #firstName class="form-control" placeholder="First Name" required/>
   </div>
   <div class="form-group">
     <label>Last Name</label>
-      <input type="text" #lastName class="form-control" placeholder="Last Name" [(ngModel)]="customer.lastName" required/>
+      <input type="text" #lastName class="form-control" placeholder="Last Name" required/>
   </div>
   <div class="form-group">
     <label>Birth Date</label>
-      <input type="date" #birthDate class="form-control" placeholder="Birth Date" value="{{customer.birthDate | date: 'yyyy-MM-dd'}}" required/>
+      <input type="date" #birthDate class="form-control" placeholder="Birth Date"  required/>
   </div>
   <div class="form-group">
     <label>Address</label>
-      <input type="text" #address class="form-control" placeholder="Address" [(ngModel)]="customer.address" required/>
+      <input type="text" #address class="form-control" placeholder="Address" required/>
   </div>
 
   <button class="btn btn-primary" (click)="add(firstName.value, lastName.value, birthDate.value, address.value)" class="btn btn-success">Save</button>

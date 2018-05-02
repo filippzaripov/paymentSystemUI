@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Customer} from '../customer';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CustomerService} from '../customer.service';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-customer-edit',
@@ -14,12 +13,12 @@ export class CustomerEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private customerService: CustomerService,
-              private location: Location,
               private router: Router) {
   }
 
   ngOnInit() {
     this.getCustomer();
+
   }
 
   getCustomer(): void {
@@ -36,7 +35,13 @@ export class CustomerEditComponent implements OnInit {
     if (!firstName && !lastName) {
       return;
     }
-    this.customerService.updateCustomer({firstName: firstName, lastName: lastName, birthDate: birthDate, address: address, id: this.customer.id} as Customer).subscribe()
+    this.customerService.updateCustomer({
+      firstName: firstName,
+      lastName: lastName,
+      birthDate: birthDate,
+      address: address,
+      id: this.customer.id
+    } as Customer).subscribe(() => this.toCustomers());
 
     this.toCustomers();
   }

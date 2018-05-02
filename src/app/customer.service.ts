@@ -11,7 +11,8 @@ const httpOptions = {
 
 @Injectable()
 export class CustomerService {
-  private customersUrl = 'http://localhost:8080/customers';
+  private customersUrl = 'http://localhost:8082/customers';
+  private customer: Customer;
 
 
   constructor(private http: HttpClient) {
@@ -29,7 +30,6 @@ export class CustomerService {
   }
 
   updateCustomer(customer: Customer): Observable<any> {
-    console.log("This is the customer Id in customer service: " + customer.id);
     const url = `${this.customersUrl}/${customer.id}`;
     return this.http.put(url, customer, httpOptions).pipe(
       catchError(this.handleError<any>('updateCustomer'))

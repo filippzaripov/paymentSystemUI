@@ -36,7 +36,7 @@ export class BillerEditComponent implements OnInit {
     if (!name && !address) {
       return;
     }
-      this.billerService.updateBiller({name: name, address: address, id: this.biller.id} as Biller).subscribe()
+      this.billerService.updateBiller({name: name, address: address, id: this.biller.id} as Biller).subscribe();
 
     this.toBillers();
   }

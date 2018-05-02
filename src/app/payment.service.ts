@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class PaymentService {
-  private paymentsUrl = 'http://localhost:8080/payments';
+  private paymentsUrl = 'http://localhost:8082/payments';
 
 
   constructor(private http: HttpClient) {
@@ -51,12 +51,12 @@ export class PaymentService {
       ));
   }
 
-  getPaymentsFilteredByCustomer(filteredByCustomer: number): Observable<Payment[]>{
+  getPaymentsFilteredByCustomer(filteredByCustomer: number): Observable<Payment[]> {
     const url = `${this.paymentsUrl}/filteredByCustomer/${filteredByCustomer}`;
     return this.http.get<Payment[]>(url);
   }
 
-  getPaymentsFilteredByBiller(filteredByBiller: number): Observable<Payment[]>{
+  getPaymentsFilteredByBiller(filteredByBiller: number): Observable<Payment[]> {
     const url = `${this.paymentsUrl}/filteredByBiller/${filteredByBiller}`;
     return this.http.get<Payment[]>(url);
   }

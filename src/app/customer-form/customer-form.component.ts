@@ -18,13 +18,6 @@ export class CustomerFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCustomer();
-  }
-
-  getCustomer(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.customerService.getCustomer(id)
-      .subscribe(customer => this.customer = customer);
   }
 
   toCustomers(): void {

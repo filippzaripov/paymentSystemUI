@@ -6,6 +6,7 @@ import {Biller} from '../biller';
 import {Customer} from '../customer';
 
 import {Payment} from '../payment';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-payments',
@@ -17,7 +18,8 @@ export class PaymentsComponent implements OnInit {
   customers: Customer[];
   billers: Biller[];
 
-  constructor(private paymentService: PaymentService,
+  constructor(private route: ActivatedRoute,
+              private paymentService: PaymentService,
               private customerService: CustomerService,
               private billerService: BillerService) {
   }
@@ -41,10 +43,10 @@ export class PaymentsComponent implements OnInit {
     this.billerService.getBillers().subscribe(billers => this.billers = billers);
   }
 
-  filterByCustomerId(id: number){
+  filterByCustomerId(id: number) {
     this.paymentService.getPaymentsFilteredByCustomer(id).subscribe(payments => this.payments = payments);
   }
-  filterByBillerId(id: number){
+  filterByBillerId(id: number) {
     this.paymentService.getPaymentsFilteredByBiller(id).subscribe(payments => this.payments = payments);
   }
 
